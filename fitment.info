@@ -1,0 +1,7 @@
+name = Fitment test Crown World
+description = Fitment test Crown World
+core = 7.x
+dependencies[] = views
+dependencies[] = ctools
+dependencies[] = webform
+dependencies[] = token

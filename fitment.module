@@ -1,0 +1,17 @@
+<?php
+
+function fitment_form_alter(&$form, &$form_state) {
+    
+    global $user;
+    //print_r($form_state);
+    $form['submitted']['initiator_details']['initiated_on']['#default_value'] = date("Y-m-d");
+    $form['submitted']['initiator_details']['created_last_updated']['#default_value'] = date("Y-m-d");
+    $form['submitted']['initiator_details']['created_latest_updated_by']['#default_value'] = $user->name;
+    $form['submitted']['initiator_details']['created_latest_updated_by_email']['#default_value'] = $user->mail;
+
+
+    if(isset($user->roles[4]) || isset($user->roles[5])) {
+        $form['submitted']['initiator_details']['initiator_name']['#default_value'] = $user->name;
+    }
+}
+
